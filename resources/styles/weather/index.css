@@ -1,0 +1,86 @@
+body {
+    color: black;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 1em;
+}
+#nav {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+a.nav {
+    color: white;
+    font-weight: bold;
+}
+a.nav:visited {
+    color: white;
+    font-weight: bold;
+}
+div.currents {
+    background-color: #d4d4d4;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    margin: 2px;
+    min-height: 150px;
+    width: 20%;
+}
+div.day {
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    margin: 2px;
+    min-height: 150px;
+    width: 10%;
+}
+.forecast > .header {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.icon {
+    float: left;
+    padding: 5px 5px 5px 5px;
+}
+div.currents > div.conditions {
+    font-size: 1.5em;
+    padding: 2px;
+}
+div.currents > div.temperature {
+    font-size: 1.25em;
+    padding: 2px;
+}
+
+div.currents > div.humidity {
+	clear: both;
+}
+
+div.forecast > div.conditions {
+    clear: left;
+    text-align: center;
+}
+div.forecast > div.high {
+    color: red;
+    font-weight: bold;
+    padding: 2px;
+}
+div.forecast > div.low {
+    color: blue;
+    font-weight: bold;
+    padding: 2px;
+}
+div.alerts {
+    clear: both;
+}
+div.alerts > div.header {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.type {
+    color: red;
+    font-weight: bold;
+}

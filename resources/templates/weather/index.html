@@ -1,0 +1,79 @@
+<!doctype html>
+<html ng-app="weather">
+<head>
+	<title>Weather Conditions</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
+	<script src="../resources/js/controllers/weather/index.js"></script>
+	<!--<script src="../resources/js/controllers/weather/locations.js"></script>-->
+	<script src="../resources/js/controllers/weather/currents.js"></script>
+	<script src="../resources/js/controllers/weather/forecasts.js"></script>
+	<script src="../resources/js/controllers/weather/alerts.js"></script>
+	<link rel="stylesheet" href="../resources/styles/weather/index.css">
+</head>
+<body>
+	<!--<div id="location" class="weather location" ng-controller="LocationsController">
+		{{ location.city }}, {{ location.state }}
+	</div>-->
+	<div id="currents" class="weather currents" ng-controller="CurrentsController">
+		<div id="weather-current-header" class="weather current header">Current Conditions</div>
+		<img id="weather-current-icon" class="weather current icon" ng-src="{{ currents.default_icon }}">
+		<div id="weather-current-conditions" class="weather current conditions">{{ currents.conditions }}</div>
+		<div id="weather-current-temperature" class="weather current temperature">{{ currents.temp }}&deg;F</div>
+			<div id="weather-current-humidity" class="weather current humidity" ng-show="{{ currents._humidity != null }}">
+				{{ currents.humidity }}&deg;F
+			</div>
+			<div id="weather-current-wind" class="weather current wind" ng-show="{{ currents.wind.mph > 0 }}">
+				Wind {{ currents.wind.direction.toLowerCase() }} at {{ currents.wind.mph }} mph
+			</div>
+			<div id="weather-current-barometer" class="weather current barometer">Pressure {{ currents.barometer }} in</div>
+			<div id="weather-current-dewpoint" class="weather current dewpoint"><label>Dewpoint</label> {{ currents.dewpoint }}&deg;F</div>
+			<div id="weather-current-windchill" class="weather current windchill" ng-show="{{ currents.windchill != null }}">
+				<label>Windchill</label> {{ currents.windchill }}
+			</div>
+			<div id="weather-current-heatindex" class="weather current heatindex" ng-show="{{ currents.heatindex != null }}">
+				<label>Heat Index</label> {{ currents.heatindex }}
+			</div>
+			
+			<div id="weather-current-visibility" class="weather current visibility" ng-show="currents.visibility < 10">
+				{{ currents.visibility }} mi
+			</div>
+			<!--<div id="weather-current-update" class="weather current update">
+				<label>Last updated at</label> {{ currents.location.last_updated }}
+			</div>-->
+	</div>
+	<div id="forecasts-container" ng-controller="ForecastsController">
+		<div id="forecasts" ng-repeat="forecast in forecasts">
+			<div id="weather-forecast-{{ forecast.id }}" class="weather forecast day">
+				<div id="weather-forecast-header-{{ forecast.id }}" class="weather forecast header">{{ forecast.day }}</div>
+				<img id="weather-forecast-icon-{{ forecast.id }}" class="weather forecast icon" ng-src="{{ forecast.default_icon }}"/>
+				<div id="weather-forecsast-temps-{{ forecast.id }}" class="weather forecast temps">
+					<div id="weather-forecast-high-{{ forecast.id }}" class="weather forecast high">{{ forecast.high_temp }}&deg;F</div>
+					<div id="weather-forecast-low-{{ forecast.id }}" class="weather forecast low" ng-show="{{ forecast.low_temp != null }}">
+						{{ forecast.low_temp }}&deg;F
+					</div>
+				</div>
+				<div id="weather-forecast-conditions-{{ forecast.id }}" class="weather forecast conditions">{{ forecast.conditions }}</div>
+			</div>
+		</div>
+	</div>
+	<div id="alerts-container" ng-controller="AlertsController">
+		<div id="weather-alert-header" class="weather alert header" ng-show="{{ alerts.length > 0 }}">Weather Alerts</div>
+		<div id="alerts" ng-repeat="alert in alerts" ng-class="{'hidden': alerts.length == 0}">
+			<div id="{{ alert.id }}">
+				<div id="weather-alert-type-{{ alert.id }}" class="weather-alert-type">
+					{{ alert.type }}
+				</div>
+				<!--<div id="weather-alert-issued-{{ alert.id }}" class="weather-alert-issued">
+					{{ alert.issued.date.str }} at {{ alert.issued.time.str }} to {{ alert.expires.date.str }} at {{ alert.expires.time.str }}
+				</div>-->
+				<!--{{ alert.title }}
+				{{ alert.severity }}
+				{{ alert.areas }}
+				{{ alert.last_updated }}
+				{{ alert.effective.date.str }} at {{ alert.effective.time.str }}
+				{{ alert.summary }}-->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

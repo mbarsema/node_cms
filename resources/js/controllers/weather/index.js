@@ -1,0 +1,1 @@
+var Weather = angular.module('weather',[]);

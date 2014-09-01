@@ -1,0 +1,1 @@
+var Editorial = angular.module('editorial',[]);
